@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.Guideline
@@ -18,16 +19,15 @@
             app:layout_constraintGuide_end="16dp"/>
         <EditText
             android:id="@+id/et_name"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/left_guideLine"
-            app:layout_constraintEnd_toEndOf="@+id/right_guideLine"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideLine"            app:layout_constraintTop_toTopOf="parent"
             android:hint="enter your name"/>
         <EditText
             android:id="@+id/et_email"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/left_guideLine"
@@ -36,26 +36,38 @@
             android:hint="enter your email"/>
         <EditText
             android:id="@+id/et_mobileNumber"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:maxLength="10"
             app:layout_constraintStart_toStartOf="@+id/left_guideLine"
             app:layout_constraintEnd_toEndOf="@+id/right_guideLine"
             app:layout_constraintTop_toBottomOf="@+id/et_email"
             android:hint="enter your mobile number"/>
+
         <EditText
-            android:id="@+id/et_address"
-            android:layout_width="match_parent"
+            android:id="@+id/et_age"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:maxLength="3"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/left_guideLine"
             app:layout_constraintEnd_toEndOf="@+id/right_guideLine"
             app:layout_constraintTop_toBottomOf="@+id/et_mobileNumber"
+            android:hint="enter your age here"/>
+        <EditText
+            android:id="@+id/et_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/left_guideLine"
+            app:layout_constraintEnd_toEndOf="@+id/right_guideLine"
+            app:layout_constraintTop_toBottomOf="@+id/et_age"
             android:hint="enter your address"/>
 
         <Button
             android:id="@+id/btn_save"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="SAVE"

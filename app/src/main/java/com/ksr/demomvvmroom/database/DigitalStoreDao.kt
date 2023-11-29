@@ -12,10 +12,10 @@ interface DigitalStoreDao {
     @Query("SELECT * FROM $TABLE_NAME")
     fun getAllCustomer(): LiveData<List<DigitalStoreEntity>>
 
-//    @Query("delete * from ${AppUtils.TABLE_NAME}")
+//    @Query("DELETE FROM $TABLE_NAME")
 //    fun deleteAllCustomerForDb()
 
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addCustomerOnDb(customer: DigitalStoreEntity)
 
     @Update

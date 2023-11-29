@@ -1,13 +1,13 @@
 package com.ksr.demomvvmroom.registration.ui
 
 import android.os.Bundle
-import androidx.activity.viewModels
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Observer
 import com.ksr.demomvvmroom.R
 import com.ksr.demomvvmroom.databinding.ActivityAddCustomerBinding
-import com.ksr.demomvvmroom.registration.data.model.DigitalStoreEntity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AddCustomerOnStoreActivity : AppCompatActivity() {
@@ -15,14 +15,24 @@ class AddCustomerOnStoreActivity : AppCompatActivity() {
     private lateinit var dataBinding: ActivityAddCustomerBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        dataBinding = DataBindingUtil.setContentView(this@AddCustomerOnStoreActivity,R.layout.activity_add_customer)
+        dataBinding = DataBindingUtil.setContentView(
+            this@AddCustomerOnStoreActivity,
+            R.layout.activity_add_customer
+        )
+
+        viewModel.repository.getAllCustomer().observe(this@AddCustomerOnStoreActivity, Observer {
+            Log.d("ListData->",it.toString())
+        })
         dataBinding.btnSave.setOnClickListener {
-            viewModel.addCustomer(
-                DigitalStoreEntity(1,
-            dataBinding.etName.text.toString(),
-            dataBinding.etEmail.text.toString(),
-            dataBinding.etMobileNumber.text.toString(),
-            dataBinding.etAddress.text.toString()))
+            viewModel.validateCustomerData(
+                this,
+                dataBinding.etName.text,
+                dataBinding.etEmail.text,
+                dataBinding.etMobileNumber.text,
+                dataBinding.etAge.text,
+                dataBinding.etAddress.text,
+            )
         }
     }
+
 }

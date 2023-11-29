@@ -20,7 +20,8 @@ val appModules = module {
             androidContext(),
             DigitalStoreDatabase::class.java,
             AppUtils.DATABASE_NAME
-        ).build()
+        ).fallbackToDestructiveMigration()
+            .build()
     }
     single { get<DigitalStoreDatabase>().getDao() }
 }
