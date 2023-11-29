@@ -1,0 +1,1 @@
+/Users/gargempltd/Desktop/DemoMvvmRoom/buildSrc/build/classes/kotlin/main/APP.class:/Users/gargempltd/Desktop/DemoMvvmRoom/buildSrc/build/classes/kotlin/main/Dependency.class:/Users/gargempltd/Desktop/DemoMvvmRoom/buildSrc/build/classes/kotlin/main/Version.class
