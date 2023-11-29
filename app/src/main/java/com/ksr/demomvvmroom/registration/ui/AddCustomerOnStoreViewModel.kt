@@ -15,8 +15,7 @@ class AddCustomerOnStoreViewModel(
     context: Context,
     val repository: DigitalStoreRepository
 ) : ViewModel() {
-    var count: Int = 0
-    fun addCustomer(customer: DigitalStoreEntity) {
+    private fun addCustomer(customer: DigitalStoreEntity) {
         viewModelScope.launch {
             repository.addCustomerOnDb(customer)
         }
@@ -38,7 +37,6 @@ class AddCustomerOnStoreViewModel(
 
             addCustomer(
                 DigitalStoreEntity(
-                    ++count,
                     name.toString(),
                     email.toString(),
                     mobileNumber.toString(),

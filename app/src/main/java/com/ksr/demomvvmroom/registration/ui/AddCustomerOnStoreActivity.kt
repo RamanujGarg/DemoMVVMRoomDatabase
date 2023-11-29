@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import com.ksr.demomvvmroom.R
 import com.ksr.demomvvmroom.databinding.ActivityAddCustomerBinding
@@ -21,7 +20,7 @@ class AddCustomerOnStoreActivity : AppCompatActivity() {
         )
 
         viewModel.repository.getAllCustomer().observe(this@AddCustomerOnStoreActivity, Observer {
-            Log.d("ListData->",it.toString())
+            Log.d("ListData->", it.toString())
         })
         dataBinding.btnSave.setOnClickListener {
             viewModel.validateCustomerData(

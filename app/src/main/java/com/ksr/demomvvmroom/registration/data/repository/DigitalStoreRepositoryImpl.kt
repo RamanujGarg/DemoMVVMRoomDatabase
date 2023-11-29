@@ -6,7 +6,7 @@ import com.ksr.demomvvmroom.registration.data.model.DigitalStoreEntity
 
 public class DigitalStoreRepositoryImpl(private val dao: DigitalStoreDao) : DigitalStoreRepository {
     override fun getAllCustomer(): LiveData<List<DigitalStoreEntity>> = dao.getAllCustomer()
-    //override suspend fun deleteAllCustomer() = dao.deleteAllCustomerForDb()
+    override suspend fun deleteAllCustomer() = dao.deleteAllCustomerForDb()
     override suspend fun addCustomerOnDb(customer: DigitalStoreEntity) =
         dao.addCustomerOnDb(customer)
 
